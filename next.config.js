@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.prismic.io",
         port: "",
-        pathname: `/${process.env.PRISMIC_ENVIRONMENT}/**`,
+        pathname: `/${process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT}/**`,
       },
     ],
   },
