@@ -49,7 +49,7 @@ export default function Picture({
 			{desktop && <source media="(min-width: 1024px)" srcSet={desktopSrc} />}
 			{tablet && <source media="(min-width: 640px)" srcSet={tabletSrc} />}
 			{mobile && <source media="(max-width: 640px)" srcSet={mobileSrc} />}
-			<img {...rest} className={merge(className, 'w-full h-auto')} />
+			<img {...rest} className={merge(className, 'h-auto w-full')} />
 		</picture>
 	)
 }

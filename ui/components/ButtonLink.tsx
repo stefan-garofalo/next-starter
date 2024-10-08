@@ -40,7 +40,7 @@ export function PrimaryButtonLink({
 		<ButtonLink
 			{...props}
 			className={merge(
-				'bg-background border border-border hover:border-border-active',
+				'border border-border bg-background hover:border-border-active',
 				className
 			)}
 		>
@@ -58,7 +58,7 @@ export function SecondaryButtonLink({
 		<ButtonLink
 			{...props}
 			className={merge(
-				'bg-foreground border border-foreground text-background hover:opacity-60',
+				'border border-foreground bg-foreground text-background hover:opacity-60',
 				className
 			)}
 		>

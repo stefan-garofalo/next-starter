@@ -27,7 +27,7 @@ export default async function Pagination({
 	return (
 		<div
 			className={merge(
-				'shrink-0 flex flex-row-reverse lg:flex-row items-center gap-x-3',
+				'flex shrink-0 flex-row-reverse items-center gap-x-3 lg:flex-row',
 				className
 			)}
 		>

@@ -63,8 +63,8 @@ export default function Slider({
 					? slider.scrollLeft + slider.children[currentIndex.current]?.clientWidth
 					: slider.scrollLeft + go
 				: snap
-				? slider.scrollLeft - slider.children[currentIndex.current]?.clientWidth
-				: slider.scrollLeft - go
+					? slider.scrollLeft - slider.children[currentIndex.current]?.clientWidth
+					: slider.scrollLeft - go
 		setIsNavigating(true)
 		slider.scroll({ left: scrollPosition, behavior: 'smooth' })
 		setTimeout(() => {
@@ -75,25 +75,20 @@ export default function Slider({
 	}
 
 	return (
-		<div className="relative h-full group/slider" ref={containerRef}>
+		<div className="group/slider relative h-full" ref={containerRef}>
 			<div
 				ref={detectOverflow}
 				style={{ '--gap': `${gap}px` } as React.CSSProperties}
-				className={`
-          ${className}
-          ${
-						container
-							? 'first:*:ml-6 last:*:mr-6 first:*:lg:ml-10 last:*:lg:mr-10'
-							: ''
-					} 
-          ${snap ? 'snap-x snap-mandatory' : ''}
-          slider relative flex gap-x-[var(--gap)] overflow-auto scroll-smooth 
-        `}
+				className={` ${className} ${
+					container
+						? 'first:*:ml-6 last:*:mr-6 first:*:lg:ml-10 last:*:lg:mr-10'
+						: ''
+				} ${snap ? 'snap-x snap-mandatory' : ''} slider relative flex gap-x-[var(--gap)] overflow-auto scroll-smooth`}
 			>
 				{children}
 			</div>
 			{showControls && (
-				<div className="absolute top-0 right-0 contain flex items-center gap-2.5">
+				<div className="contain absolute right-0 top-0 flex items-center gap-2.5">
 					<button
 						className={merge(
 							'pointer-events-auto',
@@ -102,7 +97,7 @@ export default function Slider({
 						disabled={!enablePrev || isNavigating}
 						onClick={() => navigate('prev')}
 					>
-						<IconArrow className="-rotate-180 w-2.5 h-2.5 lg:w-5 lg:h-5" />
+						<IconArrow className="h-2.5 w-2.5 -rotate-180 lg:h-5 lg:w-5" />
 						<span className="sr-only">Back</span>
 					</button>
 					<button
@@ -113,7 +108,7 @@ export default function Slider({
 						disabled={!enableNext || isNavigating}
 						onClick={() => navigate('next')}
 					>
-						<IconArrow className="w-2.5 h-2.5 lg:w-5 lg:h-5" />
+						<IconArrow className="h-2.5 w-2.5 lg:h-5 lg:w-5" />
 						<span className="sr-only">Forward</span>
 					</button>
 				</div>

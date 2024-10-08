@@ -20,7 +20,7 @@ export default function Controls({
 	)
 	return (
 		<>
-			<div className="flex flex-col lg:items-end text-sm lg:text-base lg:*:leading-none lg:gap-y-0.5">
+			<div className="flex flex-col text-sm lg:items-end lg:gap-y-0.5 lg:text-base lg:*:leading-none">
 				<span>Page: {optimisticState}</span>
 				<span>
 					{currentCount} of {totalCount?.toLocaleString('en-US')}

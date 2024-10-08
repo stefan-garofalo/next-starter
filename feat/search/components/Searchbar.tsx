@@ -25,18 +25,18 @@ export default function SearchBar({
 	return (
 		<form
 			className={merge(
-				'relative bg-background border border-border [&:hover:not(:has(input:focus))]:border-border-active transition-colors duration-300 rounded-md flex items-center',
+				'relative flex items-center rounded-md border border-border bg-background transition-colors duration-300 [&:hover:not(:has(input:focus))]:border-border-active',
 				'data-[pending]:animate-pulse data-[pending]:cursor-not-allowed',
 				className
 			)}
 			onSubmit={search}
 			data-pending={isPending ? '' : undefined}
 		>
-			<IconSearch className="size-5 absolute top-1/2 -translate-y-1/2 left-3" />
+			<IconSearch className="absolute left-3 top-1/2 size-5 -translate-y-1/2" />
 			<input
 				disabled={isPending}
 				type="text"
-				className="w-full bg-transparent py-2 pl-10 pr-3 focus:outline-2 focus:outline-foreground focus:outline-offset-4 rounded-[5px] disabled:cursor-not-allowed"
+				className="w-full rounded-[5px] bg-transparent py-2 pl-10 pr-3 focus:outline-2 focus:outline-offset-4 focus:outline-foreground disabled:cursor-not-allowed"
 				value={keywords}
 				onChange={(e) => !isPending && setKeywords(e.target.value)}
 			/>
