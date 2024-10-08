@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { inter } from '@/lib/font'
 import { LOCALE_LIST } from '@/feat/i18n/config'
