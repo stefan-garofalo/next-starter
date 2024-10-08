@@ -6,14 +6,16 @@ import SearchBar from '@/feat/search/components/Searchbar'
 import Results, { ResultsSkeleton } from '@/feat/search/components/Results'
 import Pagination, { PaginationSkeleton } from '@/feat/search/components/Pagination'
 import Sort from '@/feat/search/components/Sort'
+import { LangParams } from '@/feat/i18n/types'
 
 export const experimental_ppr = true
-export function generateMetadata() {
+export function generateMetadata({ params: { lang } }: { params: LangParams }) {
 	return generate({
 		title: 'Optimistic Git',
 		description:
 			'All the new React and Next jazz to power Github Search API. ft: PPR, Suspense, Streaming, optimistic updates and auth',
-		canonical: '/'
+		canonical: '/',
+		lang
 	})
 }
 export default function Home({ searchParams }: { searchParams: SearchParams }) {

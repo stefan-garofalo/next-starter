@@ -10,3 +10,7 @@ async function get(segment: string, query: URLSearchParams) {
 	const data = await res.json()
 	return !res.ok ? err({}) : ok(data)
 }
+
+export async function getData(param: any) {
+	return ok('true')
+}

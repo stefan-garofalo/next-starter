@@ -1,4 +1,4 @@
-import { getRepos } from '@/lib/api'
+import { getData } from '@/lib/api'
 import { merge, ClassValue } from '@/lib/tailwind'
 
 import { SearchParams } from '@/feat/search/types'
@@ -18,11 +18,11 @@ export default async function Pagination({
 	page,
 	className
 }: PaginationProps) {
-	const data = await getRepos(searchParams)
+	const data = await getData(searchParams)
 	if (data.isErr()) return null
 
-	const { total_count: total, items } = data.value
-	const currentCount = items.length >= 11 ? LIMIT * page : items.length
+	// const { total_count: total, items } = data.value
+	// const currentCount = items.length >= 11 ? LIMIT * page : items.length
 
 	return (
 		<div
@@ -31,7 +31,7 @@ export default async function Pagination({
 				className
 			)}
 		>
-			<Controls currentCount={currentCount} totalCount={total} currentPage={page} />
+			{/* <Controls currentCount={currentCount} totalCount={total} currentPage={page} /> */}
 		</div>
 	)
 }
