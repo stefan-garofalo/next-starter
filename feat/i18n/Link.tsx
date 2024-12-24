@@ -1,12 +1,13 @@
 'use client'
 
-import useLocalePath from './hooks/useLocalePath'
+import type { Route } from 'next'
 import Link, { LinkProps } from 'next/link'
+import useLocalePath from './hooks/useLocalePath'
 
-type LocalizedLinkProps = LinkProps &
+type LocalizedLinkProps = LinkProps<string> &
 	React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 		children: React.ReactNode
-		href: string
+		href: Route<string>
 	}
 
 export default function LocalizedLink({

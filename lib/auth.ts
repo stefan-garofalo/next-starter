@@ -10,7 +10,7 @@ type SessionParams = {
 export async function getSessionCookie(
 	cookieName: SessionParams['cookieName']
 ): Promise<SessionData['value']> {
-	const session = await getIronSession<SessionData>(cookies(), {
+	const session = await getIronSession<SessionData>(await cookies(), {
 		password: process.env.IRON_SESSION_SECRET as string,
 		cookieName
 	})
@@ -18,7 +18,7 @@ export async function getSessionCookie(
 	return session[cookieName]
 }
 export async function setSessionCookie({ cookieName, value }: SessionParams) {
-	const session = await getIronSession<SessionData>(cookies(), {
+	const session = await getIronSession<SessionData>(await cookies(), {
 		password: process.env.IRON_SESSION_SECRET as string,
 		cookieName
 	})

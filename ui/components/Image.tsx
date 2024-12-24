@@ -7,6 +7,7 @@ type ImageProps = {
 		height?: number
 		alt?: string
 	}
+	alt?: string
 } & Omit<NextImageProps, 'src' | 'alt' | 'width' | 'height'>
 export default function Image({
 	item,
@@ -25,7 +26,9 @@ export default function Image({
 						height: +item.height!
 					})}
 			src={item.url}
-			alt={item?.alt || alt || process?.env?.NEXT_PUBLIC_SITE_URL?.split('//')[1]}
+			alt={
+				item?.alt ?? alt ?? process?.env?.NEXT_PUBLIC_SITE_URL?.split('//')[1] ?? ''
+			}
 			sizes={sizes}
 			{...props}
 		/>

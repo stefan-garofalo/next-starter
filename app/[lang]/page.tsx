@@ -1,7 +1,8 @@
-import { generate } from '@/lib/metadata'
-import { LangParams } from '@/feat/i18n/types'
+import { generate, generateMetadataParams } from '@/lib/metadata'
 
-export function generateMetadata({ params: { lang } }: { params: LangParams }) {
+export async function generateMetadata({ params }: generateMetadataParams) {
+	const { lang } = await params
+
 	return generate({
 		title: 'Next starter',
 		description: '',

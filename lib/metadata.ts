@@ -1,5 +1,5 @@
 import { LOCALES } from '@/feat/i18n/config'
-import { Lang } from '@/feat/i18n/types'
+import { Lang, LangPageParams } from '@/feat/i18n/types'
 
 type Metadata = {
 	title: string
@@ -12,6 +12,8 @@ type Metadata = {
 	canonical: string
 	lang: Lang
 }
+
+export type generateMetadataParams = { params: LangPageParams }
 
 export function generate({
 	title,
@@ -41,7 +43,7 @@ export function generate({
 								height: image.height
 							}
 						]
-				  }
+					}
 				: {})
 		}
 	}

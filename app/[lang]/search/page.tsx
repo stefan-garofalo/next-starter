@@ -1,15 +1,15 @@
 import { Suspense } from 'react'
-import { generate } from '@/lib/metadata'
+import { generate, generateMetadataParams } from '@/lib/metadata'
 
 import type { SearchParams } from '@/feat/search/types'
 import SearchBar from '@/feat/search/components/Searchbar'
 import Results, { ResultsSkeleton } from '@/feat/search/components/Results'
 import Pagination, { PaginationSkeleton } from '@/feat/search/components/Pagination'
 import Sort from '@/feat/search/components/Sort'
-import { LangParams } from '@/feat/i18n/types'
 
-export const experimental_ppr = true
-export function generateMetadata({ params: { lang } }: { params: LangParams }) {
+export async function generateMetadata({ params }: generateMetadataParams) {
+	const { lang } = await params
+
 	return generate({
 		title: 'Optimistic Git',
 		description:
@@ -18,23 +18,25 @@ export function generateMetadata({ params: { lang } }: { params: LangParams }) {
 		lang
 	})
 }
-export default function Home({ searchParams }: { searchParams: SearchParams }) {
-	searchParams.q = searchParams.q || 'git'
-	searchParams.page = +(searchParams.page || 1)
+
+type HomePageProps = {
+	searchParams: Promise<SearchParams>
+}
+export default async function SearchPage({ searchParams }: HomePageProps) {
+	const sp = await searchParams
+	let { q: query, page } = sp
+	query = query || 'git'
+	page = +(page || 1)
 
 	return (
 		<main className="group/query p-container">
-			<SearchBar q={searchParams.q} className="w-full lg:w-1/2" />
+			<SearchBar q={query} className="w-full lg:w-1/2" />
 			<Suspense fallback={<PaginationSkeleton />}>
-				<Pagination
-					className="lg:h-full"
-					searchParams={searchParams}
-					page={searchParams.page}
-				/>
+				<Pagination className="lg:h-full" searchParams={sp} page={page} />
 			</Suspense>
 			<Sort />
 			<Suspense fallback={<ResultsSkeleton />}>
-				<Results searchParams={searchParams} />
+				<Results searchParams={sp} />
 			</Suspense>
 		</main>
 	)

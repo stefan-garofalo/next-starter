@@ -7,13 +7,11 @@ import { SearchParams } from '../types'
 import { merge, ClassValue } from '@/lib/tailwind'
 import IconSearch from '@/ui/icons/Search'
 
-export default function SearchBar({
-	q,
-	className
-}: {
+type SearchBarProps = {
 	q: SearchParams[keyof SearchParams]
 	className?: ClassValue
-}) {
+}
+export default function SearchBar({ q, className }: SearchBarProps) {
 	const [keywords, setKeywords] = useState(q)
 	const { setOptimisticState, isPending } = useOptimisticParams('q', keywords)
 
