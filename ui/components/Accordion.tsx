@@ -93,7 +93,7 @@ export function AccordionContent({
 			{...(ref ? { ref } : {})}
 			data-open={openIndex === currentIndex ? '' : undefined}
 			className={merge(
-				'grid w-full grid-rows-[0fr] transition-all duration-[850ms] data-[open]:grid-rows-[1fr]',
+				'grid w-full grid-rows-[0fr] transition-all duration-[850ms] data-open:grid-rows-[1fr]',
 				containerClassName
 			)}
 		>

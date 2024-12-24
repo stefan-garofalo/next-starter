@@ -24,7 +24,7 @@ export default function SearchBar({ q, className }: SearchBarProps) {
 		<form
 			className={merge(
 				'relative flex items-center rounded-md border border-border bg-background transition-colors duration-300 [&:hover:not(:has(input:focus))]:border-border-active',
-				'data-[pending]:animate-pulse data-[pending]:cursor-not-allowed',
+				'data-pending:animate-pulse data-pending:cursor-not-allowed',
 				className
 			)}
 			onSubmit={search}

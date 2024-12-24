@@ -81,7 +81,7 @@ export default function Slider({
 				style={{ '--gap': `${gap}px` } as React.CSSProperties}
 				className={` ${className} ${
 					container
-						? 'first:*:ml-6 last:*:mr-6 first:*:lg:ml-10 last:*:lg:mr-10'
+						? '*:first:ml-6 *:last:mr-6 lg:*:first:ml-10 lg:*:last:mr-10'
 						: ''
 				} ${snap ? 'snap-x snap-mandatory' : ''} slider relative flex gap-x-[var(--gap)] overflow-auto scroll-smooth`}
 			>
