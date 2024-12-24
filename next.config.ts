@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
 	experimental: {
 		ppr: 'incremental',
 		reactCompiler: true,
-		dynamicIO: true,
 		typedRoutes: true
 	}
 }
